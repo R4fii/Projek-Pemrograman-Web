@@ -1,83 +1,63 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kuis Interaktif</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Kuis</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <script>
-      function toggleMenu() {
-        const menu = document.getElementById("categoryMenu");
-        menu.classList.toggle("hidden");
-      }
-    </script>
-  </head>
-  <body class="bg-gray-100 flex flex-col min-h-screen">
-    <header class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <h1 class="text-2xl font-bold">Kuis Interaktif</h1>
-        <nav>
-          <ul class="flex space-x-4">
-            <li>
-              <a href="index.html" class="hover:underline"><i class="fas fa-home"></i></a>
-            </li>
-            <li>
-              <a href="my_quizzes.html" class="hover:underline"><i class="fas fa-clipboard"></i></a>
-            </li>
-            <li>
-              <a href="settings.html" class="hover:underline"><i class="fas fa-cog"></i></a>
-            </li>
-          </ul>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <header class="bg-gradient-to-r from-yellow-400 to-yellow-600 p-4 flex justify-center items-center relative">
+        <nav class="absolute left-4">
+            <a href="index.html" class="text-white text-lg">
+                <i class="fas fa-home"></i>
+            </a>
         </nav>
-      </div>
+        <h1 class="text-white text-2xl font-bold">Riwayat Kuis</h1>
     </header>
-    <main class="container mx-auto mt-8 flex-1">
-      <div class="flex flex-col md:flex-row">
-        <button
-          class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-4 py-2 rounded mb-4 md:hidden"
-          onclick="toggleMenu()"
-        >
-          Show Categories
-        </button>
-        <aside id="categoryMenu" class="bg-white p-4 rounded-lg shadow-md w-full md:w-1/5 mb-4 md:mb-0 hidden md:block">
-          <h2 class="text-xl font-bold mb-4">Kategori</h2>
-          <ul class="space-y-2">
-            <li><a href="science.html" class="text-yellow-600 hover:underline">Science</a></li>
-            <li><a href="history.html" class="text-yellow-600 hover:underline">History</a></li>
-            <li><a href="math.html" class="text-yellow-600 hover:underline">Math</a></li>
-            <li><a href="geography.html" class="text-yellow-600 hover:underline">Geography</a></li>
-            <li><a href="riwayat_quiz.html" class="text-yellow-600 hover:underline">Quiz History </a></li>
-          </ul>
-        </aside>
-        <section class="flex-1 md:ml-4">
-          <h2 class="text-xl font-bold mb-4">Daftar Kuis</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="bg-white p-4 rounded-lg shadow-md">
-              <h3 class="text-lg font-bold mb-2">Kuis Sains</h3>
-              <p class="mb-4">Uji pengetahuan Anda tentang ilmu pengetahuan!</p>
-              <button class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-4 py-2 rounded">Mulai</button>
+    <main class="flex-grow flex justify-center mt-8">
+        <div class="bg-white shadow-md rounded-lg w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2 p-6">
+            <h2 class="text-xl font-bold mb-4">Riwayat Pengerjaan Kuis</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200">
+                    <thead>
+                        <tr>
+                            <th class="px-4 py-2 border-b">No</th>
+                            <th class="px-4 py-2 border-b">Judul Kuis</th>
+                            <th class="px-4 py-2 border-b">Kategori</th>
+                            <th class="px-4 py-2 border-b">Skor</th>
+                            <th class="px-4 py-2 border-b">Tanggal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="px-4 py-2 border-b text-center">1</td>
+                            <td class="px-4 py-2 border-b">Astronomy Basics</td>
+                            <td class="px-4 py-2 border-b">Science</td>
+                            <td class="px-4 py-2 border-b text-center">85%</td>
+                            <td class="px-4 py-2 border-b text-center">2024-12-20</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b text-center">2</td>
+                            <td class="px-4 py-2 border-b">Sejarah Perang Dunia</td>
+                            <td class="px-4 py-2 border-b">History</td>
+                            <td class="px-4 py-2 border-b text-center">92%</td>
+                            <td class="px-4 py-2 border-b text-center">2024-12-19</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b text-center">3</td>
+                            <td class="px-4 py-2 border-b">Geometri Menyenangkan</td>
+                            <td class="px-4 py-2 border-b">Math</td>
+                            <td class="px-4 py-2 border-b text-center">78%</td>
+                            <td class="px-4 py-2 border-b text-center">2024-12-18</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="bg-white p-4 rounded-lg shadow-md">
-              <h3 class="text-lg font-bold mb-2">Kuis Sejarah</h3>
-              <p class="mb-4">Pelajari peristiwa bersejarah yang penting!</p>
-              <button class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-4 py-2 rounded">Mulai</button>
-            </div>
-            <div class="bg-white p-4 rounded-lg shadow-md">
-              <h3 class="text-lg font-bold mb-2">Kuis Matematika</h3>
-              <p class="mb-4">Asah kemampuan berhitung Anda.</p>
-              <button class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-4 py-2 rounded">Mulai</button>
-            </div>
-            <div class="bg-white p-4 rounded-lg shadow-md">
-              <h3 class="text-lg font-bold mb-2">Kuis Geografi</h3>
-              <p class="mb-4">Kenali dunia di sekitar Anda.</p>
-              <button class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-4 py-2 rounded">Mulai</button>
-            </div>
-          </div>
-        </section>
-      </div>
+        </div>
     </main>
-    <footer class="bg-gray-200 text-center py-4 mt-8">
-      <p class="text-gray-700">© 2024 Kuis Interaktif. All rights reserved.</p>
+    <footer class="mt-8 p-4 text-center text-gray-500" style="position: fixed; bottom: 0; width: 100%;">
+        © 2024 Kuis Interaktif. All rights reserved.
     </footer>
-  </body>
+</body>
 </html>
