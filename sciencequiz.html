@@ -1,59 +1,120 @@
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz 2</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Quiz Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        .background-astronomy {
-            position: relative;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .quiz-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            max-width: 800px;
             overflow: hidden;
+            position: relative;
+            padding-bottom: 60px; /* Add padding to the bottom to make space for the button */
         }
-        .background-astronomy img {
+        .quiz-header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .quiz-header h2 {
+            margin: 0;
+        }
+        .quiz-content {
+            display: flex;
+            padding: 20px;
+        }
+        .question {
+            flex: 2;
+            background-color: #d3dce6;
+            padding: 20px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+        .options {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .option {
+            background-color: #d3dce6;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .option.correct {
+            background-color: #28a745;
+        }
+        .option.wrong {
+            background-color: #dc3545;
+        }
+        .next-button {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
         }
-        .selected {
-            background-color: #4CAF50 !important; /* Green background for selected answer */
-            color: white !important; /* White text for selected answer */
+        @media (max-width: 768px) {
+            .quiz-content {
+                flex-direction: column;
+            }
+            .question {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
         }
     </style>
-    <script>
-        function selectAnswer(button) {
-            // Remove 'selected' class from all buttons
-            const buttons = document.querySelectorAll('.answer-button');
-            buttons.forEach(btn => btn.classList.remove('selected'));
-
-            // Add 'selected' class to the clicked button
-            button.classList.add('selected');
-        }
-    </script>
 </head>
-<body class="bg-white">
-    <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-        <div class="w-full max-w-4xl bg-white shadow-md rounded-lg p-4">
-            <div class="flex items-center justify-between bg-gray-800 text-white px-4 py-2 rounded-t-lg">
-                <span class="text-sm">Science</span>
-                <span class="text-sm">2</span>
+<body>
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h2>Science</h2>
+            <span>2</span>
+        </div>
+        <div class="quiz-content">
+            <div class="question">
+                Apa yang terjadi ketika sebuah bintang mengalami supernova?
             </div>
-            <div class="flex flex-col md:flex-row bg-white p-4 background-astronomy">
-                <img alt="Astronomy background with stars and galaxies" height="600" src="https://storage.googleapis.com/a1aa/image/B59jUdkRvq4iDF97TiZHKGB1Sar0SxFmcPQYTyM3AinPwRfJA.jpg" width="800"/>
-                <div class="bg-gray-300 p-4 mb-4 md:mb-0 md:mr-4 flex-none md:flex-1">
-                    <p class="text-black">Apa yang terjadi ketika sebuah bintang mengalami supernova?</p>
-                </div>
-                <div class="flex flex-col space-y-4 flex-1">
-                    <button class="bg-gray-300 p-4 text-left answer-button" onclick="selectAnswer(this)">Bintang menghilang tanpa jejak</button>
-                    <button class="bg-gray-300 p-4 text-left answer-button" onclick="selectAnswer(this)">Bintang meledak dan menghasilkan cahaya yang sangat terang</button>
-                    <button class="bg-gray-300 p-4 text-left answer-button" onclick="selectAnswer(this)">Bintang berubah menjadi planet</button>
-                    <button class="bg-gray-300 p-4 text-left answer-button" onclick="selectAnswer(this)">Bintang menjadi lebih dingin dan pudar</button>
-                </div>
+            <div class="options">
+                <div class="option">Bintang menghilang tanpa jejak</div>
+                <div class="option correct">Bintang meledak dan menghasilkan cahaya yang sangat terang</div>
+                <div class="option">Bintang berubah menjadi planet</div>
+                <div class="option">Bintang menjadi lebih dingin dan pudar</div>
             </div>
         </div>
+        <button class="next-button">Next</button>
     </div>
+
+    <script>
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                if (this.classList.contains('correct')) {
+                    this.style.backgroundColor = '#28a745'; // Green for correct answer
+                } else {
+                    this.style.backgroundColor = '#dc3545'; // Red for wrong answer
+                }
+            });
+        });
+    </script>
 </body>
 </html>
