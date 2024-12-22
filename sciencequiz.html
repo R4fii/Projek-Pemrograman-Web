@@ -58,10 +58,13 @@
             cursor: pointer;
         }
         .option.correct {
-            background-color: #28a745;
+            background-color: #d3dce6; /* Gray for correct answer before click */
+        }
+        .option.correct.clicked {
+            background-color: #28a745; /* Green for correct answer after click */
         }
         .option.wrong {
-            background-color: #dc3545;
+            background-color: #dc3545; /* Red for wrong answer */
         }
         .next-button {
             position: absolute;
@@ -109,7 +112,7 @@
         document.querySelectorAll('.option').forEach(option => {
             option.addEventListener('click', function() {
                 if (this.classList.contains('correct')) {
-                    this.style.backgroundColor = '#28a745'; // Green for correct answer
+                    this.classList.add('clicked'); // Add clicked class for correct answer
                 } else {
                     this.style.backgroundColor = '#dc3545'; // Red for wrong answer
                 }
